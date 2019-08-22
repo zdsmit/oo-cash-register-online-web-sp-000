@@ -10,7 +10,12 @@ class CashRegister
   def add_item(title, price, quantity = 1)
     price = price * quantity
     @total += price
-    @items << title
+    item_array = []
+    until quantity = 0
+      item_array << title
+      quantity -= 1
+    end
+    item_array.each {|item|@items << item}
   end
 
   def apply_discount
